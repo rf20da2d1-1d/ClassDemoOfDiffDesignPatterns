@@ -27,18 +27,16 @@ namespace ClassDemoOfDiffDesignPatterns
 
             //DemoFactoryMethod();
             
-            DemoAbstractFactory();
+            //DemoAbstractFactory();
 
             /*
              * Structural pattern
              */
             //DemoAdaptor();
 
-            //DemoFacade();
-
             //DemoProxy();
 
-            //DemoDecorator();
+            DemoDecorator();
 
             /*
              * Behaviour Pattern
@@ -87,7 +85,7 @@ namespace ClassDemoOfDiffDesignPatterns
         private void DemoAdaptor()
         {
             IAdaptor adap = new Adaptor1();
-            string newstr = adap.Request("anders");
+            string newstr = adap.Request("peter");
             Console.WriteLine(newstr);
 
             IAdaptor adap2 = new Adaptor2();
@@ -110,16 +108,16 @@ namespace ClassDemoOfDiffDesignPatterns
                 Console.WriteLine(s);
             }
 
-            //Console.WriteLine("    AFTER PROXY ");
-            //IDemoProxy proxy2 = new ProxyClass("SWC");
+            Console.WriteLine("    AFTER PROXY ");
+            IDemoProxy proxy2 = new ProxyClass("SWC");
 
-            //proxy2.InsertString("Peter");
-            //proxy2.InsertString("Anders");
-            
-            //foreach (string s in proxy2.GetAll())
-            //{
-            //    Console.WriteLine(s);
-            //}
+            proxy2.InsertString("Peter");
+            proxy2.InsertString("Anders");
+
+            foreach (string s in proxy2.GetAll())
+            {
+                Console.WriteLine(s);
+            }
 
         }
 
@@ -129,11 +127,11 @@ namespace ClassDemoOfDiffDesignPatterns
             IComponent component = new ConcreteComponent();
             Console.WriteLine(component.DoSomething("peter"));
 
-            //IComponent comp2 = new Decorator1(component);
-            //Console.WriteLine(comp2.DoSomething("peter"));
+            IComponent comp2 = new Decorator1(component);
+            Console.WriteLine(comp2.DoSomething("peter"));
 
-            //IComponent comp3 = new Decorator1(comp2);
-            //Console.WriteLine(comp3.DoSomething("peter"));
+            IComponent comp3 = new Decorator1(comp2);
+            Console.WriteLine(comp3.DoSomething("peter"));
 
         }
 
