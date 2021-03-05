@@ -10,6 +10,7 @@ using ClassDemoOfDiffDesignPatterns.pattern.observer;
 using ClassDemoOfDiffDesignPatterns.pattern.proxy;
 using ClassDemoOfDiffDesignPatterns.pattern.singleton;
 using ClassDemoOfDiffDesignPatterns.pattern.strategy;
+using ClassDemoOfDiffDesignPatterns.pattern.template;
 using FactoryType = ClassDemoOfDiffDesignPatterns.pattern.factory.FactoryType;
 using IComponent = ClassDemoOfDiffDesignPatterns.pattern.decorator.IComponent;
 using IDemoObject = ClassDemoOfDiffDesignPatterns.pattern.factory.IDemoObject;
@@ -36,7 +37,7 @@ namespace ClassDemoOfDiffDesignPatterns
 
             //DemoProxy();
 
-            DemoDecorator();
+            //DemoDecorator();
 
             /*
              * Behaviour Pattern
@@ -45,7 +46,7 @@ namespace ClassDemoOfDiffDesignPatterns
 
             //DemoTemplate();
 
-            //DemoStrategy();
+            DemoStrategy();
         }
 
         
@@ -183,10 +184,10 @@ namespace ClassDemoOfDiffDesignPatterns
                 "Michael C"
             };
 
-            //AbstractTemplateClass temp = new MySubTemplate();
-            //temp.InsertTemplateMethod(data);
+            AbstractTemplateClass temp = new MySubTemplate2();
+            temp.InsertTemplateMethod(data);
 
-            //Console.WriteLine(temp);
+            Console.WriteLine(temp);
 
         }
 
@@ -202,7 +203,13 @@ namespace ClassDemoOfDiffDesignPatterns
 
             
             ContextClassMoreCSharpLike context2 = new ContextClassMoreCSharpLike();
+
             context2.StrategyMethod = (s) => { return s.Substring(1); };
+            context2.InsertStrategyMethod(data);
+            Console.WriteLine(context2);
+
+
+            context2.StrategyMethod = (s) => { return "Hej " + s; };
             context2.InsertStrategyMethod(data);
             Console.WriteLine(context2);
 

@@ -29,7 +29,7 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
             {
                 if (value == _id) return;
                 _id = value;
-                OnPropertyChanged();
+                Notify();
             }
         }
 
@@ -40,7 +40,7 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
             {
                 if (value == _text) return;
                 _text = value;
-                OnPropertyChanged();
+                Notify();
             }
         }
 
@@ -53,9 +53,9 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.observer
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void Notify([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));  // kald af Update
         }
     }
 }

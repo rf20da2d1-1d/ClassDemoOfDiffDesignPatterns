@@ -7,6 +7,8 @@ namespace ClassDemoOfDiffDesignPatterns.pattern.strategy
     class ContextClassMoreCSharpLike
     {
         private ICollection<String> _collection;
+
+        // C# statregy benytter delegate
         private Func<String, String> _strategyMethod;
 
         public Func<string, string> StrategyMethod
